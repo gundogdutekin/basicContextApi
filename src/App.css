@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 .App .danger{
-  background-color: #af4c4c; /* Green */
+  background-color: #ec0f0f; /* red */
   border: none;
   color: white;
   padding: 15px 32px;
