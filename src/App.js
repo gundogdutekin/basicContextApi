@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import AuthContext from './context/auth-context';
+import Auth from './components/Auth';
+import {useState} from 'react';
 
 function App() {
+  const [autstatus, setAutstatus] = useState(false)
+  const loginHandler = () => {
+    autstatus===true ? setAutstatus(false) :setAutstatus(true)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthContext.Provider value={{status: autstatus, login: loginHandler}}>
+        <Auth />
+      </AuthContext.Provider> 
     </div>
   );
 }
